@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vasantha Kumar S — Portfolio</title>
+  <style>
+    :root{
+      --bg1:#0f1724;--bg2:#081427;--accent:#7c5cff;--accent-2:#00d4ff;
+      --glass:rgba(255,255,255,0.06);--card:rgba(255,255,255,0.03);
+      --muted:rgba(255,255,255,0.65);--radius:14px;
+      --ff-sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    html,body{height:100%}
+    body{margin:0;font-family:var(--ff-sans);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#fff;line-height:1.5;font-size:16px;overflow-x:hidden}
+    .container{max-width:1100px;margin:0 auto;padding:48px 24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:10;background:rgba(15,23,36,0.8);backdrop-filter:blur(8px);border-radius:12px;padding:8px 16px;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-weight:700;font-size:18px;color:#041025;
+      box-shadow:0 6px 20px rgba(0,0,0,0.6);}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;position:relative;}
+    nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .3s;}
+    nav a:hover::after{width:100%;}
+    nav a:hover{color:#fff}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;margin-top:36px}
+    .hero-left h1{font-size:44px;margin:0 0 8px}
+    .name-accent{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .typing{color:var(--accent-2);font-weight:700}
+    .lead{color:var(--muted);margin-top:8px}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:22px;border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .stat{display:flex;gap:12px;align-items:center}
+    .stat strong{font-size:22px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041025;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .3s,box-shadow .3s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.4);}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted)}
+    section{margin-top:64px;scroll-margin-top:120px;}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .section-title h2{margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;backdrop-filter:blur(6px);transition:transform .36s,box-shadow .36s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .card h3{margin:0 0 8px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+    .shape{position:fixed;z-index:0;border-radius:50%;filter:blur(36px);opacity:.12}
+    .s1{width:360px;height:360px;right:-80px;top:-40px;background:linear-gradient(90deg,#7c5cff,#00d4ff)}
+    .s2{width:220px;height:220px;left:-60px;bottom:-40px;background:linear-gradient(90deg,#00d4ff,#7c5cff)}
+    .reveal{opacity:0;transform:translateY(10px);transition:all .6s}
+    .reveal.visible{opacity:1;transform:none}
+    footer{margin:60px 0 30px;color:var(--muted);font-size:14px;text-align:center}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:gray;}
+    .muted{color:var(--muted)}
+    .more-projects{text-align:center;margin-top:24px;}
+  </style>
+</head>
+<body>
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">VK</div>
+        <div>
+          <div style="font-weight:800">Vasantha Kumar S</div>
+          <div class="muted" style="font-size:13px">MERN Stack Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Hi, I’m <span class="name-accent">Vasantha Kumar S</span></h1>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="typing" id="role">MERN Stack Developer</div>
+            <div class="muted">— Passionate About Technology & Innovation</div>
+          </div>
+          <p class="lead">Actively seeking full-time opportunities as a Software Developer. I’m driven by innovation and love building efficient, scalable, and user-friendly web applications.</p>
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <a class="btn" id="download-resume" href="https://drive.google.com/file/d/18dJ5zKfiSFc4SXtRA4FQNw8Klqbw_ZtL/view?usp=drive_link">Download Resume</a>
+            <a class="btn ghost" href="#projects">See Projects</a>
+          </div>
+          <div style="margin-top:26px;display:flex;gap:12px;align-items:center">
+            <a class="muted" href="https://www.linkedin.com/in/vasanthkumar826" target="_blank">LinkedIn</a>
+            <a class="muted" href="https://github.com/vasanthkumars26" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal">
+          <div class="stat">
+            <div style="flex:1">
+              <strong>1+</strong>
+              <div class="muted" style="font-size:12px">Years learning & building projects</div>
+              <p class="muted" style="margin-top:10px">MERN stack projects, APIs, and responsive design</p>
+            </div>
+          </div>
+          <hr style="opacity:.06;margin:14px 0;border:none;height:1px;background:rgba(255,255,255,0.03)">
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+            <div>
+              <div class="muted" style="font-size:12px">Preferred Stack</div>
+              <div style="font-weight:700;margin-top:6px">MongoDB • Express • React • Node</div>
+            </div>
+            <div style="text-align:right">
+              <div class="muted" style="font-size:12px">Available for</div>
+              <div style="font-weight:700;margin-top:6px">Full-time Roles</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="reveal">
+        <div class="section-title"><h2>About</h2><div class="muted">/ who I am</div></div>
+        <p class="muted">I am a MERN Stack Developer passionate about solving problems and learning new technologies. My goal is to contribute to impactful software that improves user experiences. I enjoy collaborating, designing, and developing applications that blend functionality with clean design.</p>
+      </section>
+
+      <section id="projects">
+        <div class="section-title"><h2>Projects</h2><div class="muted">/ featured work</div></div>
+        <div class="grid">
+          <article class="card reveal"><h3>Task Manager App</h3><p>A responsive MERN app for creating, tracking, and organizing tasks with CRUD operations.</p><div class="tags"><div class="tag">React</div><div class="tag">Node</div><div class="tag">MongoDB</div></div></article>
+          <article class="card reveal"><h3>E-Commerce Website</h3><p>Full-stack shopping site with authentication, cart, and payment integration using the MERN stack.</p><div class="tags"><div class="tag">MERN</div><div class="tag">REST API</div></div></article>
+          <article class="card reveal"><h3>Portfolio Site</h3><p>This interactive portfolio showcasing my work, skills, and contact info built with HTML, CSS, JS.</p><div class="tags"><div class="tag">HTML</div><div class="tag">CSS</div><div class="tag">JS</div></div></article>
+        </div>
+        <div class="more-projects">
+          <a href="https://github.com/vasanthkumars26" target="_blank" class="btn">More Projects →</a>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal">
+        <div class="section-title"><h2>Contact</h2><div class="muted">/ get in touch</div></div>
+        <p class="muted">Feel free to reach out for collaboration or opportunities.</p>
+        <form id="contact-form" style="margin-top:12px" action="mailto:vasanthkumar52itskct@gmail.com" method="post" enctype="text/plain">
+          <div class="contact-grid">
+            <input class="field" name="name" type="text" placeholder="Your name" required>
+            <input class="field" name="email" type="email" placeholder="Your email" required>
+            <input class="field" name="subject" type="text" placeholder="Subject (optional)">
+            <textarea class="field" name="message" rows="4" placeholder="Message" required></textarea>
+          </div>
+          <div style="margin-top:12px"><button class="btn" type="submit">Send message</button></div>
+        </form>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Vasantha Kumar S — Designed & coded with passion</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+   
+    const roles = ['MERN Stack Developer','Aspiring Software Developer','Tech Innovator'];
+    let idx=0;const el=document.getElementById('role');
+    function typeText(text,i=0){if(i<=text.length){el.textContent=text.slice(0,i);setTimeout(()=>typeText(text,i+1),40);}else setTimeout(()=>eraseText(text),1200);}
+    function eraseText(text,i=text.length){if(i>=0){el.textContent=text.slice(0,i);setTimeout(()=>eraseText(text,i-1),18);}else{idx=(idx+1)%roles.length;setTimeout(()=>typeText(roles[idx]),300);}}
+    typeText(roles[0]);
+
+   
+    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+   
+    document.querySelectorAll('.nav-link').forEach(link=>{
+      link.addEventListener('click',e=>{
+        e.preventDefault();
+        const targetId=link.getAttribute('href').slice(1);
+        const section=document.getElementById(targetId);
+        if(section){
+          const y=section.getBoundingClientRect().top+window.pageYOffset-80;
+          window.scrollTo({top:y,behavior:'smooth'});
+          section.animate([{transform:'scale(0.98)'},{transform:'scale(1)'}],{duration:600,easing:'ease-out'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
